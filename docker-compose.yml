@@ -1,0 +1,19 @@
+version: '3.8'
+services:
+    go:
+        build: docker/go
+        restart: always
+        environment:
+            - TZ=$TZ
+            - LANG=$LANG
+        volumes:
+            - "./app:${APP_DIR}"
+            - "./config/go/ssh:/root/.ssh/"
+            - "./config/go/supervisor/supervisord.conf:/etc/supervisor/supervisord.conf"
+            - "./config/go/supervisor/conf.d:/etc/supervisor/conf.d/"
+            - "./logs/supervisor:/var/log/supervisor"
+            - "./logs/go:/var/log/go"
+        ports:
+            - "8199:8199"
+        expose:
+            - "8199"
