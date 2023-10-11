@@ -2,8 +2,7 @@
 repo=git@codeup.aliyun.com:61b175c645bcdc5071135609/cloud/cloud-erp-service.git
 dir=releases/$(date +%Y%m%d%H%M%S)
 shared=shared
-hack_conf=$shared/hack/config.yaml
-manifest_conf=$shared/manifest/config.yaml
+config=$shared/manifest/config.yaml
 
 makefile() {
   path=$1
@@ -34,16 +33,11 @@ makefile() {
 git clone -b dev  $repo "$dir" || exit 1
 
 # config
-if [ ! -f $hack_conf ]; then
-  touch $hack_conf
-fi
-if [ ! -f $manifest_conf ]; then
-  touch $manifest_conf
+if [ ! -f $config ]; then
+  touch $config
 fi
 
-(cd "$dir" || exit;ln -sf ../../$hack_conf hack/config.yaml)
-(cd "$dir" || exit;ln -sf ../../$manifest_conf manifest/config/config.yaml)
-
+(cd "$dir" || exit;cp ../../$config manifest/config/config.yaml)
 
 # makefile 执行打包
 
