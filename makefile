@@ -13,7 +13,6 @@ all:
 
 init:
 	@echo "${COLOR_GREEN}Init ...${COLOR_NORMAL}"
-	@(cd logs;rm -rf go;ln -sf ../app/logs go)
 	@chmod 0600 ./config/go/ssh/id_rsa
 	@echo $(DONE)
 
