@@ -1,5 +1,5 @@
 server:
-  address:     ":8808"
+  address:     ":8199"
   serverRoot: "resource/public"
   dumpRouterMap: false
   routeOverWrite: true
@@ -31,7 +31,7 @@ database:
     Path: "resource/log/sql"
 
   default:
-    link:   "mysql:root:@tcp(127.0.0.1:3306)/gfast?charset=utf8mb4&parseTime=true&loc=Local"
+    link:   "mysql:root:admin@tcp(139.196.126.98:3310)/syserp?charset=utf8mb4&parseTime=true&loc=Local"
     debug:  true
     charset: "utf8mb4" #数据库编码
     dryRun: false #空跑
@@ -53,8 +53,9 @@ gfToken:
 redis:
   # 单实例配置
   default:
-    address: 127.0.0.1:6379
-    db: 1
+    address: 172.19.241.155:6386
+    pass: "K*Ao7Wzm#t"
+    db: 6
     idleTimeout: "60s" #连接最大空闲时间，使用时间字符串例如30s/1m/1d
     maxConnLifetime: "90s" #连接最长存活时间，使用时间字符串例如30s/1m/1d
     waitTimeout: "60s" #等待连接池连接的超时时间，使用时间字符串例如30s/1m/1d

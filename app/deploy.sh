@@ -39,7 +39,8 @@ fi
 
 (cd "$dir" || exit;cp ../../$config manifest/config/config.yaml)
 
-# makefile 执行打包
-
 # current link
 (rm -rf current && ln -sf "$dir" current)
+
+# 执行打包
+(cd "$dir" || exit;go build -o app;supervisorctl reload)
