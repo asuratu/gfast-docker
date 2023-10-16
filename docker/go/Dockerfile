@@ -9,6 +9,8 @@ ENV TZ=Asia/Shanghai
 
 ENV CGO_ENABLED 0
 ENV GOPROXY https://goproxy.cn,direct
+ENV GO111MODULE on
+
 
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
