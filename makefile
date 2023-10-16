@@ -25,7 +25,7 @@ release:
 	@docker-compose exec go bash -c "./deploy.sh";
 
 update:
-	@docker-compose exec go bash -c "cd current;git pull;rm app;go mod tidy;go build -o app;supervisorctl reload";
+	@docker-compose exec go bash -c "cd current;git pull;rm app;go build -o app;supervisorctl reload";
 
 go:
 	@docker-compose exec go env LANG=C.UTF-8 bash;
