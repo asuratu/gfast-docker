@@ -1,8 +1,6 @@
 #!/bin/bash
 repo=git@codeup.aliyun.com:61b175c645bcdc5071135609/cloud/cloud-erp-service.git
 dir=releases/$(date +%Y%m%d%H%M%S)
-shared=shared
-config=$shared/manifest/config.yaml
 
 makefile() {
   path=$1
@@ -32,15 +30,14 @@ makefile() {
 # git
 git clone -b dev  $repo "$dir" || exit 1
 
-# config
-if [ ! -f $config ]; then
-  touch $config
-fi
-
-(cd "$dir" || exit;cp ../../$config manifest/config/config.yaml)
-
 # current link
 (rm -rf current && ln -sf "$dir" current)
+
+# config link
+(cd "shared/manifest" || exit; rm -rf config && ln -sf "../../$dir/manifest/config" config)
+
+# 复制 config.yaml.example 到 config.yaml
+(cd "current/manifest/config" || exit;cp config.yaml.example config.yaml)
 
 # 执行打包
 (cd "$dir" || exit;go build -o app;supervisorctl reload)
