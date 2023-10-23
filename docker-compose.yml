@@ -14,5 +14,7 @@ services:
             - "./logs/supervisor:/var/log/supervisor"
         ports:
             - "8199:8199"
+            - "8200:8200"
         expose:
             - "8199"
+            - "8200"
