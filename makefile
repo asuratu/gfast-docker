@@ -28,10 +28,10 @@ release-clterp:
 	@docker-compose exec go bash -c "cd clterp;./deploy.sh";
 
 update-syserp:
-	@docker-compose exec go bash -c "cd syserp/current;git pull;rm main;go build -o main;supervisorctl reload";
+	@docker-compose exec go bash -c "cd syserp/current;git pull;rm main;go build -o main;supervisorctl reload syserp";
 
 update-clterp:
-	@docker-compose exec go bash -c "cd clterp/current;git pull;rm main;go build -o main;supervisorctl reload";
+	@docker-compose exec go bash -c "cd clterp/current;git pull;rm main;go build -o main;supervisorctl reload clterp";
 
 go:
 	@docker-compose exec go env LANG=C.UTF-8 bash;

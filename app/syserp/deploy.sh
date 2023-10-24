@@ -40,4 +40,4 @@ git clone -b dev  $repo "$dir" || exit 1
 (cd "current/manifest/config" || exit;cp config.yaml.example config.yaml)
 
 # 执行打包
-(cd "$dir" || exit;go build -o main;supervisorctl reload)
+(cd "$dir" || exit;go build -o main;supervisorctl reload syserp)
