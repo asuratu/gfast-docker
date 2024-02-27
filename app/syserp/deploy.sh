@@ -1,5 +1,5 @@
 #!/bin/bash
-repo=git@codeup.aliyun.com:61b175c645bcdc5071135609/cloud/cloud-erp-service.git
+repo=git@codeup.aliyun.com:61b175c645bcdc5071135609/cloud/erp-admin-service.git
 dir=releases/$(date +%Y%m%d%H%M%S)
 
 makefile() {
@@ -28,7 +28,7 @@ makefile() {
 }
 
 # git
-git clone -b dev  $repo "$dir" || exit 1
+git clone -b main  $repo "$dir" || exit 1
 
 # current link
 (rm -rf current && ln -sf "$dir" current)
