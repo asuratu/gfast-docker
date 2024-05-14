@@ -21,17 +21,11 @@ clean:
 git-init:
 	@docker-compose exec go bash -c "cd current;git config pull.rebase false;git config pull.rebase true;git config pull.ff only";
 
-release-syserp:
-	@docker-compose exec go bash -c "cd syserp;./deploy.sh";
+release-cmserp:
+	@docker-compose exec go bash -c "cd cmserp;./deploy.sh";
 
-release-clterp:
-	@docker-compose exec go bash -c "cd clterp;./deploy.sh";
-
-update-syserp:
-	@docker-compose exec go bash -c "cd syserp/current;git pull;rm main;go build -o main;supervisorctl restart syserp";
-
-update-clterp:
-	@docker-compose exec go bash -c "cd clterp/current;git pull;rm main;go build -o main;supervisorctl restart clterp";
+update-cmserp:
+	@docker-compose exec go bash -c "cd cmserp/current;git pull;rm main;go build -o main;supervisorctl restart cmserp";
 
 reload:
 	@docker-compose exec go bash -c "supervisorctl reload";
