@@ -1,0 +1,10 @@
+# CLI.
+gfcli:
+  gen:
+    dao:
+      - link: "mysql:root:@tcp(127.0.0.1:3306)/gfast?loc=Local"
+        tables:          "sys_role_dept"
+        removePrefix:    "gf_"
+        descriptionTag:  true
+        noModelComment:  true
+        path: "./internal/app/system"
