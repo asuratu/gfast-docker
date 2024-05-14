@@ -1,5 +1,5 @@
 #!/bin/bash
-repo=git@codeup.aliyun.com:61b175c645bcdc5071135609/cloud/erp-client-service.git
+repo=git@codeup.aliyun.com:61b175c645bcdc5071135609/cloud/cms-admin-service.git
 dir=releases/$(date +%Y%m%d%H%M%S)
 
 makefile() {
@@ -40,4 +40,4 @@ git clone -b main  $repo "$dir" || exit 1
 (cd "current/manifest/config" || exit;cp config.yaml.example config.yaml)
 
 # 执行打包
-(cd "$dir" || exit;go build -o main;supervisorctl restart clterp)
+(cd "$dir" || exit;go build -o main;supervisorctl restart cmserp)

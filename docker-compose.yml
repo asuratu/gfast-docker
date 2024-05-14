@@ -13,8 +13,6 @@ services:
             - "./config/go/supervisor/conf.d:/etc/supervisor/conf.d/"
             - "./logs/supervisor:/var/log/supervisor"
         ports:
-            - "8199:8199"
-            - "8200:8200"
+            - "8808:8808"
         expose:
-            - "8199"
-            - "8200"
+            - "8808"
