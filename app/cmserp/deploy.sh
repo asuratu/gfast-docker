@@ -28,7 +28,7 @@ makefile() {
 }
 
 # git
-git clone -b main  $repo "$dir" || exit 1
+git clone -b dev  $repo "$dir" || exit 1
 
 # current link
 (rm -rf current && ln -sf "$dir" current)
